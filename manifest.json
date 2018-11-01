@@ -1,0 +1,11 @@
+{
+  "manifest_version":2,
+  "version":"1.0",
+  "name":"Illumination",
+  "description":"Simple new tab extension with chennai weather,time and random picture background",
+  "author":"Yogeshwaran",
+  "chrome_url_overrides":{
+    "newtab":"newtab.html"
+  },
+  "permissions": ["<all_urls>"]
+}
