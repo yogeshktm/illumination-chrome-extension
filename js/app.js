@@ -15,38 +15,54 @@ window.onload = function() {
           let currentWeather;
           let printWeather = document.getElementById('weatherText');
           let imageElement = document.getElementById('weatherImage');
-          let allWeatherStateArray = [];
-          allWeatherStateArray.push(response[0].weather_state_abbr,response[1].weather_state_abbr,response[2].weather_state_abbr,response[3].weather_state_abbr,response[4].weather_state_abbr
-          ,response[5].weather_state_abbr);
+          let weatherState = response[0].weather_state_abbr;
+          console.log(weatherState);
           
-          if(allWeatherStateArray.toString().match(/t/g).length >= 3){
-            weatherState = 't';
-            currentWeather = "It will be thunder and rainy today. Keep yourself warm";
+          let tText = "It will be thunder and rainy today. Keep yourself warm";
+          let snText = "Snowy Goovy day";
+          let slText = "Chance for a snowy rain";
+          let hText = "Careful Pellets of rain may fall"
+          let hrText = "Chance for heavy rain. did you bring your umberlla today ?";
+          let lrText = "Light Drizzles. Enjoy the climate";
+          let sText = "Chance for showers today";
+          let cText = "Its clear sky. suryan koluthifying";
+          let cdText = "Cloudy howdy day";
+          
+          const setWeatherState = function(state){
+            switch(state){
+              case 'sn':
+                currentWeather = snText;
+                break;
+              case 't':
+                currentWeather = tText;
+                break;
+              case 'sl':
+                currentWeather = slText;
+                break;
+              case 'h':
+                currentWeather = hText;
+                break;
+              case 'hr':
+                currentWeather = hrText;
+                break;
+              case 'lr':
+                currentWeather = lrText;
+                break;
+              case 's':
+                currentWeather = sText;
+                break;
+              case 'c':
+                currentWeather = cText;
+                break;
+              case 'lc':
+                currentWeather = cdText;
+                break;
+              case 'hc':
+                currentWeather = cdText;
+                break;
+            }
           }
-          else if(allWeatherStateArray.toString().match(/sn/g).length >= 3){
-            weatherState = 't';
-            currentWeather = "Snowy Goovy day";
-          }
-          else if(allWeatherStateArray.toString().match(/sn/g).length >= 3){
-            weatherState = 'hr';
-            currentWeather = "Chance for heavy rain. did you bring your umberlla today ?";
-          }
-          else if(allWeatherStateArray.toString().match(/lr/g).length >= 3){
-            weatherState = 'lr';
-            currentWeather = "Light Drizzles. Enjoy the climate";
-          }
-          else if(allWeatherStateArray.toString().match(/c/g).length >= 3){
-            weatherState = 'c';
-            currentWeather = "Its clear sky. suryan koluthifying";
-          }
-          else if(allWeatherStateArray.toString().match(/lc/g).length >= 3){
-            weatherState = 'lc';
-            currentWeather = "Cloudy howdy day";
-          }
-          else if(allWeatherStateArray.toString().match(/hc/g).length >= 3){
-            weatherState = 'hc';
-            currentWeather = "Cloudy howdy day";
-          }
+          setWeatherState(weatherState);
           let fullImgSrc = imgSrc + weatherState + '.png';
           document.getElementById('weatherText').innerHTML = currentWeather;
           imageElement.setAttribute('src',fullImgSrc);
@@ -56,6 +72,7 @@ window.onload = function() {
       xhr.send();
   };
   
+  // SET BACKGORUND COLOR 
   const setBackground = function(){
     let bgColors = ['#03a9f4','#f44336','#ff9800','#607d8b'];
     let min= 1; 
@@ -64,12 +81,14 @@ window.onload = function() {
     document.getElementById('body').style.background = bgColors[random];
   }
   
+  // SET TIME 
   const setTime = function(){
     let d = new Date().toLocaleTimeString(); // for now
     console.log(d);
     document.getElementById('time').innerHTML = d;
   }
   
+  // CHECK BACKGROUND IMAGE OPTED FROM localstorage value
   const checkBg = function(){
     let isBgImageOpted = localStorage.getItem('bgImage');
     let bgInput = document.getElementById('bg-check');
@@ -83,6 +102,7 @@ window.onload = function() {
     }
   }
   
+  // SET BACKGROUND IMAGE 
   const setBgImage = function(){
     let bgInput = document.getElementById('bg-check');
     bgInput.addEventListener('change', (event) => {
@@ -97,6 +117,7 @@ window.onload = function() {
     })
   }
   
+  // GET BACKGROUND IMAGE FROM PICSUM 
   const getBgImage = function(){
     document.getElementById('body').style.backgroundImage = 'url("https://picsum.photos/1920/833/?random")' ;
   }
