@@ -3,7 +3,7 @@ window.onload = function() {
     const getCurrentLocation = function(p) {
         const latitude = p.coords.latitude;
         const longitude = p.coords.longitude;
-        // GETTING LAT AND LON AND MAKA REQUEST GET woeid OF CITY 
+        // GETTING LAT AND LON AND MAKE REQUEST GET woeid OF CITY 
         // changing the XMLHttpRequest to Fetch_API as promise (For 2 API calls)
         fetch('https://www.metaweather.com/api/location/search/?lattlong=' + latitude + ',' + longitude)
             .then(function(response) {
