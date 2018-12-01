@@ -14,9 +14,9 @@ A new tab chrome extension from my basic javascript learning
 On first load of the extension if you clicked Block access of the location. You can't get the current location of yours.So on that case please do following
 `
 
-1.On your computer, open Chrome.
-2.At the top right, click More More.
-3.Click More tools and then Clear browsing data.
-4.At the top, choose a time range. To delete everything, select All time.(On time range please select 15min)
-5.Next to "Cookies and other site data" and "Cached images and files," check the boxes.
-6.Click Clear data. 
+1. On your computer, open Chrome.
+2. At the top right, click More More.
+3. Click More tools and then Clear browsing data.
+4. At the top, choose a time range. To delete everything, select All time.(On time range please select 15min)
+5. Next to "Cookies and other site data" and "Cached images and files," check the boxes.
+6. Click Clear data. 
