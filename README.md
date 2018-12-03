@@ -1,5 +1,6 @@
 # illumination-chrome-extension
-A new tab chrome extension from my basic javascript learning
+A new tab chrome extension 
+
 ### How to Unpack the extension on chrome 
 1. Download or clone the project. 
 2. Open Chrome > Extensions > Enable Developer mode by clicking the button on the top right corner 
@@ -20,3 +21,5 @@ On first load of the extension if you clicked Block access of the location. You 
 4. At the top, choose a time range. To delete everything, select All time.(On time range please select 15min)
 5. Next to "Cookies and other site data" and "Cached images and files," check the boxes.
 6. Click Clear data. 
+
+Then You are Good to GO!! :sparkles: :boom:
