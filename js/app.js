@@ -3,8 +3,6 @@ window.onload = function() {
     const getCurrentLocation = function(p) {
         const latitude = p.coords.latitude;
         const longitude = p.coords.longitude;
-        // const latitude = 36.96;
-        // const longitude = -122.02;
         // GETTING LAT AND LON AND MAKE REQUEST GET woeid OF CITY 
         // changing the XMLHttpRequest to Fetch_API as promise (For 2 API calls)
         fetch('https://www.metaweather.com/api/location/search/?lattlong=' + latitude + ',' + longitude)
