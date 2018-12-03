@@ -3,6 +3,8 @@ window.onload = function() {
     const getCurrentLocation = function(p) {
         const latitude = p.coords.latitude;
         const longitude = p.coords.longitude;
+        // const latitude = 36.96;
+        // const longitude = -122.02;
         // GETTING LAT AND LON AND MAKE REQUEST GET woeid OF CITY 
         // changing the XMLHttpRequest to Fetch_API as promise (For 2 API calls)
         fetch('https://www.metaweather.com/api/location/search/?lattlong=' + latitude + ',' + longitude)
@@ -17,7 +19,6 @@ window.onload = function() {
                 }
             })
             .then(function(data) {
-                console.log('success', data);
                 // GOT woeid AND AGAIN CALL THAT ENDPOINT WITH woeid TO GET consolidated_weather
                 return fetch('https://www.metaweather.com/api/location/' + data[0]['woeid']);
             })
@@ -31,8 +32,8 @@ window.onload = function() {
                 let currentWeather;
                 let printWeather = document.getElementById('weatherText');
                 let imageElement = document.getElementById('weatherImage');
+                document.getElementById('time').innerHTML = 'Hey DUDE How Was ' +lastReport['title'];
                 let weatherState = response[0].weather_state_abbr;
-
                 let tText = "It will be thunder and rainy today. Keep yourself warm";
                 let snText = "Snowy Goovy day";
                 let slText = "Chance for a snowy rain";
@@ -79,7 +80,7 @@ window.onload = function() {
                 }
                 setWeatherState(weatherState);
                 let fullImgSrc = imgSrc + weatherState + '.png';
-                document.getElementById('weatherText').innerHTML = currentWeather;
+                document.getElementById('weatherText').innerHTML = currentWeather + ' right ☺';
                 imageElement.setAttribute('src', fullImgSrc);
             })
             .catch(function(error) {
@@ -93,7 +94,7 @@ window.onload = function() {
     let bgColors = ['#03a9f4','#f44336','#ff9800','#607d8b'];
     let min= 1; 
     let max= 4;  
-    let random = Math.round(Math.random() * (+max - +min) + +min); 
+    let random = Math.round(Math.random() * (+max - +min) + +min); // To remove the white on the random word
     document.getElementById('body').style.background = bgColors[random];
   }
   
